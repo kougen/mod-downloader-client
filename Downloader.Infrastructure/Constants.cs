@@ -2,7 +2,7 @@ namespace Downloader.Infrastructure;
 
 public static class Constants
 {
-    public static List<string> LEGACY_MOD_GROUPS =
+    public static readonly List<string> LegacyModGroups =
     [
         "abnormals",
         "addons",
@@ -20,11 +20,10 @@ public static class Constants
         "util"
     ];
 
-    public static string LEGACY_MODS_PATH =
-        "https://raw.githubusercontent.com/kougen/minecraft-mods/main/mod-downloader/config/mods";
-    
+    public const string LegacyModsPath = "https://raw.githubusercontent.com/kougen/minecraft-mods/main/mod-downloader/config/mods";
+
     public static IEnumerable<string> GetLegacyModUrls()
     {
-        return LEGACY_MOD_GROUPS.Select(group => $"{LEGACY_MODS_PATH}/{group}.json");
+        return LegacyModGroups.Select(group => $"{LegacyModsPath}/{group}.json");
     }
 }
