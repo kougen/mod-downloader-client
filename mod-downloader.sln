@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Downloader.Backend", "Downl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Downloader.Console", "Downloader.Console\Downloader.Console.csproj", "{ED3C38C1-9559-4F4F-AB44-254554A01ED6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Downloader.Unit", "Downloader.Unit\Downloader.Unit.csproj", "{D3AF5264-756C-41E0-9285-C70601BC5C11}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{ED3C38C1-9559-4F4F-AB44-254554A01ED6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED3C38C1-9559-4F4F-AB44-254554A01ED6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED3C38C1-9559-4F4F-AB44-254554A01ED6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3AF5264-756C-41E0-9285-C70601BC5C11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3AF5264-756C-41E0-9285-C70601BC5C11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3AF5264-756C-41E0-9285-C70601BC5C11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3AF5264-756C-41E0-9285-C70601BC5C11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
