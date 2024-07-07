@@ -30,4 +30,6 @@ public static class Constants
     {
         return $"{LegacyModsPath}/packs.json";
     }
+
+    public const string CURSEFORGE_URL = "https://api.curseforge.com";
 }
