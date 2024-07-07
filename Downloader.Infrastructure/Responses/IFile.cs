@@ -2,24 +2,24 @@ namespace Downloader.Infrastructure.Responses;
 
 public interface IHash
 {
-    string Value { get; set; }
-    int Algo { get; set; }
+    string Value { get; }
+    int Algo { get; }
 }
 
 public interface IFile
 {
-    int Id { get; set; }
-    int GameId { get; set; }
-    int ModId { get; set; }
-    bool IsAvailable { get; set; }
-    string DisplayName { get; set; }
-    string FileName { get; set; }
-    int ReleaseType { get; set; }
-    int FileStatus { get; set; }
-    List<IHash> Hashes { get; set; }
-    DateTime FileDate { get; set; }
-    int FileLength { get; set; }
-    int DownloadCount { get; set; }
-    string DownloadUrl { get; set; }
-    List<string> GameVersions { get; set; }
+    int Id { get; }
+    int GameId { get; }
+    int ModId { get; }
+    bool IsAvailable { get; }
+    string DisplayName { get; }
+    string FileName { get; }
+    int ReleaseType { get; }
+    int FileStatus { get; }
+    IEnumerable<IHash> Hashes { get; }
+    DateTime FileDate { get; }
+    int FileLength { get; }
+    int DownloadCount { get; }
+    string DownloadUrl { get; }
+    IEnumerable<string> GameVersions { get; }
 }

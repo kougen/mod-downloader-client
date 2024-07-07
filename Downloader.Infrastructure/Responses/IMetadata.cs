@@ -2,16 +2,16 @@ namespace Downloader.Infrastructure.Responses;
 
 public interface IAuthor
 {
-    int Id { get; set; }
-    string Name { get; set; }
-    string Url { get; set; }
+    int Id { get; }
+    string Name { get; }
+    string Url { get; }
 }
 
 public interface ILogo
 {
-    int Id { get; set; }
-    int ModId { get; set; }
-    string Title { get; set; }
-    string ThumbnailUrl { get; set; }
-    string Url { get; set; }
+    int Id { get; }
+    int ModId { get; }
+    string Title { get; }
+    string ThumbnailUrl { get; }
+    string Url { get; }
 }
