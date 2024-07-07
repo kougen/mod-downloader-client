@@ -13,5 +13,6 @@ public class LegacyRetrieverTests
         var mods = legacyRetriever.GetMods(urls);
         
         Assert.NotNull(mods);
+        Assert.NotEmpty(mods);
     }
 }
