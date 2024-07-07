@@ -9,5 +9,9 @@
     <ItemGroup>
       <ProjectReference Include="..\Downloader.Infrastructure\Downloader.Infrastructure.csproj" />
     </ItemGroup>
+    
+    <ItemGroup>
+        <InternalsVisibleTo Include="Downloader.Unit" />
+    </ItemGroup>
 
 </Project>

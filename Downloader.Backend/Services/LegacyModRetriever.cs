@@ -26,7 +26,7 @@ public class LegacyModRetriever : IModRetriever
             }
                 
             var content = response.Content.ReadAsStringAsync().Result;
-            var mods = JsonSerializer.Deserialize<IEnumerable<ILegacyMod>>(content);
+            var mods = JsonSerializer.Deserialize<IEnumerable<LegacyMod>>(content);
             if (mods == null)
             {
                 continue;
