@@ -36,6 +36,22 @@ public class LegacyService : ILegacyService
 
     public IEnumerable<ILegacyModPack> GetModPacks(string url)
     {
-        throw new NotImplementedException();
+        var result = new List<ILegacyModPack>();
+        using var client = new HttpClient();
+        var response = client.GetAsync(url).Result;
+        if (!response.IsSuccessStatusCode)
+        {
+            return result;
+        }
+
+        var content = response.Content.ReadAsStringAsync().Result;
+        var modPacks = JsonConvert.DeserializeObject<IEnumerable<LegacyModPack>>(content);
+        if (modPacks == null)
+        {
+            return result;
+        }
+        
+        result.AddRange(modPacks);
+        return result;
     }
 }
