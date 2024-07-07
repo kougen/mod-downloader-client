@@ -2,6 +2,7 @@ using System.Text.Json;
 using Downloader.Backend.Responses;
 using Downloader.Infrastructure.Responses;
 using Downloader.Infrastructure.Services;
+using Newtonsoft.Json;
 
 namespace Downloader.Backend.Services;
 
@@ -16,25 +17,25 @@ public class LegacyModRetriever : IModRetriever
     {
         var result = new List<IBaseMod>();
         using var client = new HttpClient();
-        
-        foreach(var url in urls)
+
+        foreach (var url in urls)
         {
             var response = client.GetAsync(url).Result;
             if (!response.IsSuccessStatusCode)
             {
                 continue;
             }
-                
+
             var content = response.Content.ReadAsStringAsync().Result;
-            var mods = JsonSerializer.Deserialize<IEnumerable<LegacyMod>>(content);
+            var mods = JsonConvert.DeserializeObject<IEnumerable<LegacyMod>>(content);
             if (mods == null)
             {
                 continue;
             }
 
-            result.AddRange(mods.Select(mod => new BaseMod(mod.Id)).Cast<IBaseMod>());
+            result.AddRange(mods.Select(mod => new BaseMod { Id = mod.Id }));
         }
-        
+
         return result;
     }
 }

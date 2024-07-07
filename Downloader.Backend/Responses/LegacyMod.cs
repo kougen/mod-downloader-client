@@ -1,13 +1,31 @@
-using Downloader.Infrastructure.Responses;
+using Newtonsoft.Json;
 
 namespace Downloader.Backend.Responses;
 
-public class LegacyMod(string id, string domain, string fileName, string state, IEnumerable<string> dependsOn)
-    : ILegacyMod
+public class LegacyMod
 {
-    public string Id { get; } = id;
-    public string Domain { get; } = domain;
-    public string FileName { get; } = fileName;
-    public string State { get; } = state;
-    public IEnumerable<string> DependsOn { get; } = dependsOn;
+    [JsonProperty("id")]
+    public string Id { get; }
+    
+    [JsonProperty("domain")]
+    public string Domain { get; }
+    
+    [JsonProperty("filename")]
+    public string FileName { get; }
+    
+    [JsonProperty("state")]
+    public string State { get; }
+    
+    [JsonProperty("depend_on")]
+    public IEnumerable<string> DependsOn { get; }
+    
+    [JsonConstructor]
+    public LegacyMod(string id, string domain, string filename, string state, IEnumerable<string> dependOn)
+    {
+        Id = id;
+        Domain = domain;
+        FileName = filename;
+        State = state;
+        DependsOn = dependOn;
+    }
 }

@@ -2,7 +2,7 @@ using Downloader.Infrastructure.Responses;
 
 namespace Downloader.Backend.Responses;
 
-public class BaseMod(string id) : IBaseMod
+public class BaseMod : IBaseMod
 {
-    public string Id { get; } = id;
+    public string Id { get; set; }
 }
