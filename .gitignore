@@ -4,3 +4,7 @@
 # Objects and Binaries
 bin/
 obj/
+
+# User settings
+*.suo
+*.DotSettings.user
