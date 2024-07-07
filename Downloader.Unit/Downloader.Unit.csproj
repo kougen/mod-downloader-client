@@ -22,4 +22,8 @@
         </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Downloader.Backend\Downloader.Backend.csproj" />
+    </ItemGroup>
+
 </Project>
