@@ -1,8 +1,7 @@
 namespace Downloader.Infrastructure.Responses;
 
-public interface IModDetails
+public interface IModDetails : IBaseMod
 {
-    int Id { get; }
     int GameId { get; }
     string Name { get; }
     string Slug { get; }

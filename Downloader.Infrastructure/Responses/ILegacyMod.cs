@@ -1,8 +1,7 @@
 namespace Downloader.Infrastructure.Responses;
 
-public interface ILegacyMod
+public interface ILegacyMod : IBaseMod
 {
-    string Id { get; }
     string Domain { get; }
     string FileName { get; }
     string State { get; }
