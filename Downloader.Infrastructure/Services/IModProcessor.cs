@@ -2,6 +2,9 @@ using Downloader.Infrastructure.Responses;
 
 namespace Downloader.Infrastructure.Services;
 
+/// <summary>
+/// Converts the responses from the source into usable objects.
+/// </summary>
 public interface IModProcessor
 {
     IModDetails? GetModDetails(string id);
