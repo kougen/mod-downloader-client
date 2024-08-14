@@ -1,11 +1,17 @@
 namespace Downloader.Infrastructure.Responses;
 
+/// <summary>
+/// Hash for the files.
+/// </summary>
 public interface IHash
 {
     string Value { get; }
     int Algo { get; }
 }
 
+/// <summary>
+/// File struc
+/// </summary>
 public interface IFile
 {
     int Id { get; }
