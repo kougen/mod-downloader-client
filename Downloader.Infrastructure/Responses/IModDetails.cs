@@ -12,17 +12,12 @@ public interface IModDetails : IBaseMod
     bool IsFeatured { get; }
     int PrimaryCategoryId { get; }
     IEnumerable<ICategory> Categories { get; }
-    int ClassId { get; }
     IEnumerable<IAuthor> Authors { get; }
     ILogo Logo { get; }
-    int MainFileId { get; }
     IEnumerable<IFile> LatestFiles { get; }
     DateTime DateCreated { get; }
     DateTime DateModified { get; }
     DateTime DateReleased { get; }
-    bool AllowModDistribution { get; }
-    int GamePopularityRank { get; }
     bool IsAvailable { get; }
-    int ThumbsUpCount { get; }
 }
 

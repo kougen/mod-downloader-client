@@ -1,5 +1,8 @@
 namespace Downloader.Infrastructure.Responses;
 
+/// <summary>
+/// Mod category.
+/// </summary>
 public interface ICategory
 {
     int Id { get; }
@@ -10,6 +13,5 @@ public interface ICategory
     string IconUrl { get; }
     DateTime DateModified { get; }
     bool IsClass { get; }
-    int ClassId { get; }
     int ParentCategoryId { get; }
 }
