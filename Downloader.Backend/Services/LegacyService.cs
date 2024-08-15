@@ -1,4 +1,3 @@
-using System.Text.Json;
 using Downloader.Backend.Responses;
 using Downloader.Infrastructure.Responses;
 using Downloader.Infrastructure.Services;
@@ -8,21 +7,20 @@ namespace Downloader.Backend.Services;
 
 public class LegacyService : ILegacyService
 {
-    public async Task<IEnumerable<IBaseMod>> GetModsAsync(IEnumerable<string> urls)
+    public async Task<IEnumerable<ILegacyMod>> GetModsAsync(IEnumerable<string> urls)
     {
-        var result = new List<IBaseMod>();
+        var result = new List<ILegacyMod>();
         using var client = new HttpClient();
 
         foreach (var url in urls)
         {
-            var mods = await GetPartialAsync<LegacyMod>(client, url);
-            result.AddRange(mods.Select(mod => new BaseMod { Id = mod.Id }));
+            result.AddRange(await GetPartialAsync<LegacyMod>(client, url));
         }
 
         return result;
     }
 
-    public IEnumerable<IBaseMod> GetMods(IEnumerable<string> urls)
+    public IEnumerable<ILegacyMod> GetMods(IEnumerable<string> urls)
     {
         return GetModsAsync(urls).Result;
     }

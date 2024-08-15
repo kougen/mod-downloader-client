@@ -9,14 +9,14 @@ public interface ILegacyService
     /// </summary>
     /// <param name="urls"></param>
     /// <returns></returns>
-    Task<IEnumerable<IBaseMod>> GetModsAsync(IEnumerable<string> urls);
+    Task<IEnumerable<ILegacyMod>> GetModsAsync(IEnumerable<string> urls);
     
     /// <summary>
     /// Retrieve a list of mods from the given urls.
     /// </summary>
     /// <param name="urls"></param>
     /// <returns></returns>
-    IEnumerable<IBaseMod> GetMods(IEnumerable<string> urls);
+    IEnumerable<ILegacyMod> GetMods(IEnumerable<string> urls);
     
     /// <summary>
     /// Retrieve a list of mod packs from the given url using async.
