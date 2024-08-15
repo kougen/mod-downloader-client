@@ -4,8 +4,8 @@ using Newtonsoft.Json;
 namespace Downloader.Backend.Responses;
 
 [method: JsonConstructor]
-public class LegacyMod(string id, string domain, string filename, string state, IEnumerable<string> dependOn)
-    : ILegacyMod
+public class LegacyModResponseResponse(string id, string domain, string filename, string state, IEnumerable<string> dependOn)
+    : ILegacyModResponseResponse
 {
     [JsonProperty("id")]
     public string Id { get; } = id;

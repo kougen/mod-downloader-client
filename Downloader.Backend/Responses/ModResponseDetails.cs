@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Downloader.Backend.Responses;
 
-public class ModDetails : IModDetails
+public class ModResponseDetails : IModResponseDetails
 {
     [JsonProperty("id")] public string Id { get; set; }
 
@@ -25,17 +25,17 @@ public class ModDetails : IModDetails
 
     [JsonProperty("primaryCategoryId")] public int PrimaryCategoryId { get; }
 
-    [JsonProperty("categories")] public IEnumerable<ICategory> Categories { get; }
+    [JsonProperty("categories")] public IEnumerable<ICategoryResponse> Categories { get; }
 
     [JsonProperty("classId")] public int ClassId { get; }
 
-    [JsonProperty("authors")] public IEnumerable<IAuthor> Authors { get; }
+    [JsonProperty("authors")] public IEnumerable<IAuthorResponse> Authors { get; }
 
-    [JsonProperty("logo")] public ILogo Logo { get; }
+    [JsonProperty("logo")] public ILogoResponse LogoResponse { get; }
 
     [JsonProperty("mainFileId")] public int MainFileId { get; }
 
-    [JsonProperty("latestFiles")] public IEnumerable<IFile> LatestFiles { get; }
+    [JsonProperty("latestFiles")] public IEnumerable<IFileResponse> LatestFiles { get; }
 
     [JsonProperty("dateCreated")] public DateTime DateCreated { get; }
 
@@ -52,12 +52,12 @@ public class ModDetails : IModDetails
     [JsonProperty("thumbsUpCount")] public int ThumbsUpCount { get; }
 
     [JsonConstructor]
-    public ModDetails(
+    public ModResponseDetails(
         string id,
         int gameId,
         string name, string slug, string websiteUrl, string summary, int status, int downloadCount, bool isFeatured,
-        int primaryCategoryId, IEnumerable<ICategory> categories, int classId, IEnumerable<IAuthor> authors, ILogo logo,
-        int mainFileId, IEnumerable<IFile> latestFiles, DateTime dateCreated, DateTime dateModified,
+        int primaryCategoryId, IEnumerable<ICategoryResponse> categories, int classId, IEnumerable<IAuthorResponse> authors, ILogoResponse logoResponse,
+        int mainFileId, IEnumerable<IFileResponse> latestFiles, DateTime dateCreated, DateTime dateModified,
         DateTime dateReleased, bool allowModDistribution, int gamePopularityRank, bool isAvailable, int thumbsUpCount)
     {
         Id = id;
@@ -73,7 +73,7 @@ public class ModDetails : IModDetails
         Categories = categories;
         ClassId = classId;
         Authors = authors;
-        Logo = logo;
+        LogoResponse = logoResponse;
         MainFileId = mainFileId;
         LatestFiles = latestFiles;
         DateCreated = dateCreated;

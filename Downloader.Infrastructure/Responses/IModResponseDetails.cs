@@ -15,9 +15,9 @@ public interface IModDetails : IBaseMod
     bool IsFeatured { get; }
     int PrimaryCategoryId { get; }
     IEnumerable<ICategory> Categories { get; }
-    IEnumerable<IAuthor> Authors { get; }
-    ILogo Logo { get; }
-    IEnumerable<IFile> LatestFiles { get; }
+    IEnumerable<IAuthorResponse> Authors { get; }
+    ILogoResponse LogoResponse { get; }
+    IEnumerable<IFileResponse> LatestFiles { get; }
     DateTime DateCreated { get; }
     DateTime DateModified { get; }
     DateTime DateReleased { get; }

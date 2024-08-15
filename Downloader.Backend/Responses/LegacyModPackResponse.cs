@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Downloader.Backend.Responses;
 
-public class LegacyModPack : ILegacyModPack
+public class LegacyModPackResponse : ILegacyModPackResponse
 {
     [JsonProperty("name")]
     public string Name { get; }
@@ -18,7 +18,7 @@ public class LegacyModPack : ILegacyModPack
     public IEnumerable<string> PackContent { get; }
     
     [JsonConstructor]
-    public LegacyModPack(string name, string displayName, string description, IEnumerable<string> packContent)
+    public LegacyModPackResponse(string name, string displayName, string description, IEnumerable<string> packContent)
     {
         Name = name;
         DisplayName = displayName;

@@ -2,7 +2,7 @@ using Downloader.Infrastructure.Responses;
 
 namespace Downloader.Backend.Responses;
 
-public class StringCategory : ICategory
+public class StringCategoryResponse : ICategoryResponse
 {
     public int Id { get; }
     public int GameId { get; }

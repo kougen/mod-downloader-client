@@ -4,7 +4,7 @@ namespace Downloader.Infrastructure.Responses.CurseForge;
 /// <summary>
 /// A category structure for CurseForge mod categories.
 /// </summary>
-public interface ICategory : Responses.ICategory
+public interface ICategoryResponse : Responses.ICategory
 {
     int GameId { get; }
     string Slug { get; }

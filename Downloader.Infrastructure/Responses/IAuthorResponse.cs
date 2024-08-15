@@ -3,7 +3,7 @@ namespace Downloader.Infrastructure.Responses;
 /// <summary>
 /// Author of the mod.
 /// </summary>
-public interface IAuthor
+public interface IAuthorRespnse
 {
     /// <summary>
     /// Id of the author.
