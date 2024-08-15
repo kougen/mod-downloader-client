@@ -7,30 +7,30 @@ namespace Downloader.Backend.Services;
 
 public class LegacyService : ILegacyService
 {
-    public async Task<IEnumerable<ILegacyMod>> GetModsAsync(IEnumerable<string> urls)
+    public async Task<IEnumerable<ILegacyModResponseResponse>> GetModsAsync(IEnumerable<string> urls)
     {
-        var result = new List<ILegacyMod>();
+        var result = new List<ILegacyModResponseResponse>();
         using var client = new HttpClient();
 
         foreach (var url in urls)
         {
-            result.AddRange(await GetPartialAsync<LegacyMod>(client, url));
+            result.AddRange(await GetPartialAsync<LegacyModResponseResponse>(client, url));
         }
 
         return result;
     }
 
-    public IEnumerable<ILegacyMod> GetMods(IEnumerable<string> urls)
+    public IEnumerable<ILegacyModResponseResponse> GetMods(IEnumerable<string> urls)
     {
         return GetModsAsync(urls).Result;
     }
 
-    public async Task<IEnumerable<ILegacyModPack>> GetModPacksAsync(string url)
+    public async Task<IEnumerable<ILegacyModPackResponse>> GetModPacksAsync(string url)
     {
-        return await GetAsync<LegacyModPack>(url);
+        return await GetAsync<LegacyModPackResponse>(url);
     }
 
-    public IEnumerable<ILegacyModPack> GetModPacks(string url)
+    public IEnumerable<ILegacyModPackResponse> GetModPacks(string url)
     {
         return GetModPacksAsync(url).Result;
     }

@@ -7,9 +7,9 @@ namespace Downloader.Infrastructure.Services;
 /// </summary>
 public interface IModProcessor
 {
-    IModDetails? GetModDetails(string id);
-    IModDetails? GetModDetails(int id);
+    IModResponseDetails? GetModDetails(string id);
+    IModResponseDetails? GetModDetails(int id);
     
-    IEnumerable<IModDetails> GetModDetails(IEnumerable<string> ids);
-    IEnumerable<IModDetails> GetModDetails(IEnumerable<int> ids);
+    IEnumerable<IModResponseDetails> GetModDetails(IEnumerable<string> ids);
+    IEnumerable<IModResponseDetails> GetModDetails(IEnumerable<int> ids);
 }

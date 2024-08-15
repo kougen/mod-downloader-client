@@ -1,3 +1,4 @@
+using System.Reflection;
 using Implementation.Module;
 using Infrastructure.Module;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,6 +9,8 @@ public class ATestBase
 {
     protected IModule Core { get; }
     protected IBaseModule Test { get; }
+    protected string TestDirectory { get; } = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
+    protected string GetPath(string path) => Path.Combine(TestDirectory, path);
 
     protected IServiceProvider Services { get; }
     

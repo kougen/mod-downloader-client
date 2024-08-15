@@ -17,10 +17,10 @@ internal class GetModBody(IEnumerable<int> modIds)
 }
 
 [method: JsonConstructor]
-internal class GetModResponse(IEnumerable<ModDetails> data)
+internal class GetModResponse(IEnumerable<ModResponseDetails> data)
 {
     [JsonProperty("data")]
-    public IEnumerable<ModDetails> Data { get; set; } = data;
+    public IEnumerable<ModResponseDetails> Data { get; set; } = data;
 }
 
 public class ModProcessor : IModProcessor
@@ -40,24 +40,24 @@ public class ModProcessor : IModProcessor
         _client.Dispose();
     }
     
-    public IModDetails? GetModDetails(string id)
+    public IModResponseDetails? GetModDetails(string id)
     {
         return GetModDetails(int.Parse(id));
     }
 
-    public IModDetails? GetModDetails(int id)
+    public IModResponseDetails? GetModDetails(int id)
     {
         var details = GetModDetails(new List<int> { id });
         return details.FirstOrDefault();
     }
 
-    public IEnumerable<IModDetails> GetModDetails(IEnumerable<string> ids)
+    public IEnumerable<IModResponseDetails> GetModDetails(IEnumerable<string> ids)
     {
         var intIds = ConvertIds(ids);
         return GetModDetails(intIds);
     }
 
-    public IEnumerable<IModDetails> GetModDetails(IEnumerable<int> ids)
+    public IEnumerable<IModResponseDetails> GetModDetails(IEnumerable<int> ids)
     {
         var url = $"{Infrastructure.Constants.CURSEFORGE_URL}/v1/mods";
         
@@ -66,7 +66,7 @@ public class ModProcessor : IModProcessor
         var response = _client.PostAsync(url, stringContent).Result;
         if (!response.IsSuccessStatusCode)
         {
-            return new List<IModDetails>();
+            return new List<IModResponseDetails>();
         }
         
         var content = response.Content.ReadAsStringAsync().Result;
@@ -74,7 +74,7 @@ public class ModProcessor : IModProcessor
         
         if(mod == null)
         {
-            return new List<IModDetails>();
+            return new List<IModResponseDetails>();
         }
         
         return mod.Data;

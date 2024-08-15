@@ -11,6 +11,7 @@ public class Module(IServiceCollection collection) : AModule(collection), IBaseM
     public override IModule RegisterServices(IServiceCollection collection)
     {
         collection.AddSingleton<ILegacyService, LegacyService>();
+        collection.AddSingleton<IFileManager, FileManager>();
         return this;
     }
 }
