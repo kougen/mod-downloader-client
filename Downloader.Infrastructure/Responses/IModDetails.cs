@@ -1,5 +1,8 @@
 namespace Downloader.Infrastructure.Responses;
 
+/// <summary>
+/// The response structure for the mod details.
+/// </summary>
 public interface IModDetails : IBaseMod
 {
     int GameId { get; }
