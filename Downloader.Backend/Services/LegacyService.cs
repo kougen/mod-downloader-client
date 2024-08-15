@@ -8,50 +8,54 @@ namespace Downloader.Backend.Services;
 
 public class LegacyService : ILegacyService
 {
-    public IEnumerable<IBaseMod> GetMods(IEnumerable<string> urls)
+    public async Task<IEnumerable<IBaseMod>> GetModsAsync(IEnumerable<string> urls)
     {
         var result = new List<IBaseMod>();
         using var client = new HttpClient();
 
         foreach (var url in urls)
         {
-            var response = client.GetAsync(url).Result;
-            if (!response.IsSuccessStatusCode)
-            {
-                continue;
-            }
-
-            var content = response.Content.ReadAsStringAsync().Result;
-            var mods = JsonConvert.DeserializeObject<IEnumerable<LegacyMod>>(content);
-            if (mods == null)
-            {
-                continue;
-            }
-
+            var mods = await GetPartialAsync<LegacyMod>(client, url);
             result.AddRange(mods.Select(mod => new BaseMod { Id = mod.Id }));
         }
 
         return result;
     }
 
+    public IEnumerable<IBaseMod> GetMods(IEnumerable<string> urls)
+    {
+        return GetModsAsync(urls).Result;
+    }
+
+    public async Task<IEnumerable<ILegacyModPack>> GetModPacksAsync(string url)
+    {
+        return await GetAsync<LegacyModPack>(url);
+    }
+
     public IEnumerable<ILegacyModPack> GetModPacks(string url)
     {
-        var result = new List<ILegacyModPack>();
-        using var client = new HttpClient();
-        var response = client.GetAsync(url).Result;
+        return GetModPacksAsync(url).Result;
+    }
+
+    #region Private methods
+
+    private async Task<IEnumerable<T>> GetAsync<T>(string url)
+    {
+        return await GetPartialAsync<T>(new HttpClient(), url);
+    }
+    
+    private async Task<IEnumerable<T>> GetPartialAsync<T>(HttpClient client, string url)
+    {
+        var response = await client.GetAsync(url);
         if (!response.IsSuccessStatusCode)
         {
-            return result;
+            return new List<T>();
         }
 
-        var content = response.Content.ReadAsStringAsync().Result;
-        var modPacks = JsonConvert.DeserializeObject<IEnumerable<LegacyModPack>>(content);
-        if (modPacks == null)
-        {
-            return result;
-        }
-        
-        result.AddRange(modPacks);
-        return result;
+        var contentStr = await response.Content.ReadAsStringAsync();
+        var content = JsonConvert.DeserializeObject<IEnumerable<T>>(contentStr);
+        return content ?? new List<T>();
     }
+
+    #endregion
 }
