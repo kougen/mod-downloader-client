@@ -3,7 +3,7 @@ namespace Downloader.Infrastructure.Responses;
 /// <summary>
 /// The response structure for the mod details.
 /// </summary>
-public interface IModDetails : IBaseMod
+public interface IModResponseDetails : IBaseModResponse
 {
     int GameId { get; }
     string Name { get; }
@@ -14,7 +14,7 @@ public interface IModDetails : IBaseMod
     int DownloadCount { get; }
     bool IsFeatured { get; }
     int PrimaryCategoryId { get; }
-    IEnumerable<ICategory> Categories { get; }
+    IEnumerable<ICategoryResponse> Categories { get; }
     IEnumerable<IAuthorResponse> Authors { get; }
     ILogoResponse LogoResponse { get; }
     IEnumerable<IFileResponse> LatestFiles { get; }

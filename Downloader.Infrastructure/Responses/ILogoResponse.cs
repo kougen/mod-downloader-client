@@ -3,7 +3,7 @@ namespace Downloader.Infrastructure.Responses;
 /// <summary>
 /// Logo of the mod.
 /// </summary>
-public interface ILogo
+public interface ILogoResponse
 {
     /// <summary>
     /// Id of the logo.

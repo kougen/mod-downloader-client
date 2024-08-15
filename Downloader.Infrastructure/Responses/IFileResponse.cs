@@ -12,7 +12,7 @@ public interface IHash
 /// <summary>
 /// File struc
 /// </summary>
-public interface IFile
+public interface IFileResponse
 {
     int Id { get; }
     int GameId { get; }

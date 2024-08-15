@@ -4,7 +4,7 @@ namespace Downloader.Infrastructure.Responses;
 /// Legacy mod was used  in the previous version of the mod downloader.
 /// The mods are stored in a json file on GitHub.
 /// </summary>
-public interface ILegacyModResponse : IBaseMod
+public interface ILegacyModResponseResponse : IBaseModResponse
 {
     string Domain { get; }
     string FileName { get; }

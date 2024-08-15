@@ -31,9 +31,9 @@ internal static class Program
 
         var mods = await service.GetModsAsync(Infrastructure.Constants.GetLegacyModUrls());
         var elements = mods
-            .Select(m => elementFactory.CreateNavigatorElement<ILegacyMod>($"{m.FileName}", m))
+            .Select(m => elementFactory.CreateNavigatorElement<ILegacyModResponseResponse>($"{m.FileName}", m))
             .ToList();
-        var nav = _serviceProvider.GetRequiredService<INavigatorFactory>().CreateNavigator<ILegacyMod>(writer);
+        var nav = _serviceProvider.GetRequiredService<INavigatorFactory>().CreateNavigator<ILegacyModResponseResponse>(writer);
         nav.UpdateItems(elements);
         var selected = nav.Show();
         Console.WriteLine(selected.FileName);
