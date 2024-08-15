@@ -6,5 +6,5 @@ namespace Downloader.Infrastructure.Responses;
 /// </summary>
 public interface IBaseMod
 {
-    string Id { get; set; }
+    string Id { get; }
 }
