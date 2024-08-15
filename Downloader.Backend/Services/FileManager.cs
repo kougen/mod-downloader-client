@@ -1,3 +1,4 @@
+using Downloader.Infrastructure.Models;
 using Downloader.Infrastructure.Services;
 
 namespace Downloader.Backend.Services;
@@ -17,7 +18,17 @@ public class FileManager : IFileManager
         await using var fileStream = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None);
         await response.Content.CopyToAsync(fileStream, cancellationToken);
     }
-    
+
+    public async Task DownloadFilesAsync(IEnumerable<IFile> files, CancellationToken cancellationToken)
+    {
+        var tasks = files.Select(async file =>
+        {
+            await file.DownloadAsync(cancellationToken);
+        });
+
+        await Task.WhenAll(tasks);
+    }
+
     public void CopyFile(string source, string destination)
     {
         File.Copy(source, destination, true);
