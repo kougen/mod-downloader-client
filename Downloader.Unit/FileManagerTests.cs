@@ -33,7 +33,7 @@ public class FileManagerTests : ATestBase
     }
     
     [Fact]
-    public async void Fm0003GivenCorrectUrlWhenDownloadFilesAsyncCalledSimultaniouslyThenReturnsFilesFm_0003_Given_Correcturl_When_Downloadfilesasynccalledsimultaneously_Then_Returnsfiles()
+    public async void Fm0003GivenCorrectUrlWhenDownloadFilesAsyncCalledSimultaneouslyThenReturnsFilesFm_0003_Given_CorrectUrl_When_Downloadfilesasynccalledsimultaneously_Then_Returnsfiles()
     {
         var timer = new Stopwatch();
         var files = new List<IFile>

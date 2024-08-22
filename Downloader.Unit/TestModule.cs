@@ -6,6 +6,10 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Downloader.Unit;
 
+/// <summary>
+/// A base module for the test project.
+/// </summary>
+/// <param name="collection"></param>
 public class TestModule(IServiceCollection collection) : AModule(collection), IBaseModule
 {
     public override IModule RegisterServices(IServiceCollection collection)
