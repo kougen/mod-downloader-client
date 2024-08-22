@@ -1,8 +1,8 @@
-using Downloader.Infrastructure.Responses;
+using ICategoryResponse = Downloader.Infrastructure.Responses.CurseForge.ICategoryResponse;
 
-namespace Downloader.Backend.Responses;
+namespace Downloader.Backend.Responses.CurseForge;
 
-public class StringCategoryResponse : ICategoryResponse
+public class CategoryResponse : ICategoryResponse
 {
     public int Id { get; }
     public int GameId { get; }
