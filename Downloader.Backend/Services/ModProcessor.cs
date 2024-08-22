@@ -1,5 +1,6 @@
 using System.Text;
 using Downloader.Backend.Responses;
+using Downloader.Backend.Responses.CurseForge;
 using Downloader.Infrastructure.Responses;
 using Downloader.Infrastructure.Services;
 using Newtonsoft.Json;
