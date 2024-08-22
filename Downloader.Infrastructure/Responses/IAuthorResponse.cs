@@ -6,7 +6,7 @@ namespace Downloader.Infrastructure.Responses;
 public interface IAuthorResponse
 {
     /// <summary>
-    /// Id of the author.
+    /// ID of the author.
     /// </summary>
     int Id { get; }
     
