@@ -1,5 +1,7 @@
 using Downloader.Infrastructure.Responses;
+using Downloader.Infrastructure.Responses.CurseForge;
 using Newtonsoft.Json;
+using ICategoryResponse = Downloader.Infrastructure.Responses.ICategoryResponse;
 
 namespace Downloader.Backend.Responses.CurseForge;
 

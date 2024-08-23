@@ -1,4 +1,4 @@
-namespace Downloader.Infrastructure.Responses;
+namespace Downloader.Infrastructure.Responses.CurseForge;
 
 /// <summary>
 /// Logo of the mod.
@@ -6,7 +6,7 @@ namespace Downloader.Infrastructure.Responses;
 public interface ILogoResponse
 {
     /// <summary>
-    /// Id of the logo.
+    /// ID of the logo.
     /// </summary>
     int Id { get; }
     

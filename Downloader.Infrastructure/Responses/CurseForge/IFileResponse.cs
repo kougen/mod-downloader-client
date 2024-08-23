@@ -1,4 +1,4 @@
-namespace Downloader.Infrastructure.Responses;
+namespace Downloader.Infrastructure.Responses.CurseForge;
 
 /// <summary>
 /// Hash for the files.

@@ -1,3 +1,5 @@
+using Downloader.Infrastructure.Responses.CurseForge;
+
 namespace Downloader.Infrastructure.Responses;
 
 /// <summary>
