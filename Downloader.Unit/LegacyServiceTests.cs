@@ -40,4 +40,16 @@ public class LegacyServiceTests
         Assert.NotNull(modPacks);
         Assert.NotEmpty(modPacks);
     }
+    
+    [Fact]
+    public async void LST_0012_Given_CorrectUrl_When_GetModPacksAsyncCalled_Then_ReturnsModPacks()
+    {
+        var legacyRetriever = new LegacyService();
+        var url = Infrastructure.Constants.GetLegacyModPackUrl();
+        
+        var modPacks = await legacyRetriever.GetModPacksAsync(url);
+        
+        Assert.NotNull(modPacks);
+        Assert.NotEmpty(modPacks);
+    }
 }
