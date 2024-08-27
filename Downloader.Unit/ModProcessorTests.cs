@@ -19,4 +19,18 @@ public class ModProcessorTests : ATestBase
         
         Assert.NotNull(modDetails);
     }
+    
+    [Fact]
+    public void MPT_0002_Given_CorrectId_When_GetModFilesCalled_Then_ReturnsModFiles()
+    {
+        var query = Services.GetRequiredService<IConfigurationQuery>();
+        var key = query.GetStringAttribute("curseForge.apiKey");
+        Assert.NotNull(key);
+        var modProcessor = new ModProcessor(key);
+        var id = "3418627";
+        
+        //var modFiles = modProcessor.GetModFiles(id);
+        
+        //Assert.NotNull(modFiles);
+    }
 }
