@@ -25,4 +25,8 @@ public class ATestBase
         
         Services = services.BuildServiceProvider();
     }
+    
+    public virtual void Dispose()
+    {
+    }
 }

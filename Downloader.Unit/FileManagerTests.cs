@@ -70,4 +70,39 @@ public class FileManagerTests : ATestBase
         
         Assert.True(timer.ElapsedMilliseconds < 40000);
     }
+    
+    [Fact]
+    public void FM_0004_Given_CorrectSourceAndDestination_When_CopyFileCalled_Then_ReturnsFile()
+    {
+        var fileManager = new FileManager();
+        var source = GetPath("test.pdf");
+        var destination = GetPath("test2.pdf");
+        
+        fileManager.CopyFile(source, destination);
+        
+        Assert.True(System.IO.File.Exists(destination));
+    }
+    
+    private string GetPath(string fileName)
+    {
+        return Path.Combine(Environment.CurrentDirectory, fileName);
+    }
+    
+    public override void Dispose()
+    {
+        var files = new List<string>
+        {
+            GetPath("test.pdf"),
+            GetPath("test2.pdf"),
+            GetPath("test3.pdf")
+        };
+        
+        foreach (var file in files)
+        {
+            if (System.IO.File.Exists(file))
+            {
+                System.IO.File.Delete(file);
+            }
+        }
+    }
 }
